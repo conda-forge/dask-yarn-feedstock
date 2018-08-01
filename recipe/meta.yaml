@@ -1,5 +1,5 @@
 {% set name = "dask-yarn" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 043bb09dbc14d6aeb6460fc571c68ca623d2cedeaed26ba15bc8c6b396e39053
+  sha256: 6bb8a1a8d5159920d5040239ad588043bd24e8e8c507f0361c16308c0535cb6c
 
 build:
   number: 0
@@ -25,7 +25,7 @@ requirements:
     - python
     - dask >=0.18.0
     - distributed >=1.22.0
-    - skein >=0.0.3
+    - skein >=0.1.0
     - backports.weakref  # [py2k]
 
 test:
