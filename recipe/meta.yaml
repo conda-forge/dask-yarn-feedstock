@@ -10,7 +10,7 @@ source:
   sha256: 0e52a3f06d65252cfac40f730a9fd2bffeab2d7b956c8e400d417a203d1e4006
 
 build:
-  number: 0
+  number: 1000
   skip: True  # [win]
   entry_points:
     - dask-yarn-worker=dask_yarn.cli.dask_yarn_worker:main
