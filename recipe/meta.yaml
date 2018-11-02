@@ -1,5 +1,5 @@
 {% set name = "dask-yarn" %}
-{% set version = "0.3.2" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bf3d51bec96caba08fecc12636f156209052932760014ec3b5db664ed2954326
+  sha256: 328b2b095f6e01c637604d6eee6619b0d752edaf75e9fc29d888de01d7038a8b
 
 build:
   number: 0
   skip: True  # [win]
   entry_points:
-    - dask-yarn-worker=dask_yarn.cli.dask_yarn_worker:main
-    - dask-yarn-scheduler=dask_yarn.cli.dask_yarn_scheduler:main
+    - dask-yarn=dask_yarn.cli:main
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -26,12 +25,14 @@ requirements:
     - dask >=0.19.0
     - distributed >=1.23.0
     - skein >=0.3.1
+    - grpcio >=1.14.0
     - backports.weakref  # [py2k]
 
 test:
   imports:
     - dask_yarn
-    - dask_yarn.cli
+  commands:
+    - dask-yarn --help
 
 about:
   home: https://github.com/dask/dask-yarn
