@@ -1,5 +1,5 @@
 {% set name = "dask-yarn" %}
-{% set version = "0.5.0" %}
+{% set version = "0.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 80e91406ee20a0b465a7a009ed1dfddd1d82cdd4cacd957a98c325ac4300313a
+  sha256: 71c3f0667e145fa140db72efa7bf048bb8261c2bd2d6f8d265b877a6f054df0b
 
 build:
   number: 0
@@ -24,7 +24,7 @@ requirements:
     - python
     - dask >=0.19.0
     - distributed >=1.23.0
-    - skein >=0.4.1
+    - skein >=0.5.0
     - grpcio >=1.14.0
     - backports.weakref  # [py2k]
 
@@ -46,7 +46,6 @@ about:
     start, stop, and scale Dask clusters natively from Python.
   doc_url: https://dask-yarn.readthedocs.io/
   dev_url: https://github.com/dask/dask-yarn
-
 
 extra:
   recipe-maintainers:
