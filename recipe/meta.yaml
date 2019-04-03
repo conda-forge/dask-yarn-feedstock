@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c0eb660558cd4ceedb006ca263eb37f00e41a9f094a2b0d360f7ed6e6bebd54e
+  sha256: 42935910487bd11a0c6211bff7ca0279c1ff2fbe1414a4a89a75d06a7af37755
 
 build:
   number: 0
-  skip: True  # [win]
+  noarch: python
   entry_points:
     - dask-yarn=dask_yarn.cli:main
   script: python -m pip install --no-deps --ignore-installed .
