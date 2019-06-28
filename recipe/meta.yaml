@@ -1,5 +1,5 @@
 {% set name = "dask-yarn" %}
-{% set version = "0.6.0" %}
+{% set version = "0.6.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bbb24101f02f7a140c8c1b291dbeecac0bb683cbdc573194b5078c57efa10e6b
+  sha256: 5651d49deafa73702f12a74b5c6c055e7b4492921094b297b13d1aa2420c89fa
 
 build:
   number: 0
