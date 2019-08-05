@@ -10,18 +10,18 @@ source:
   sha256: a40d05715616deac0f4a394e8a9dfd86f903bdf49cd1ce98c45a55e95a89ba49
 
 build:
-  number: 0
-  skip: True  # [win]
+  number: 1
+  skip: True  # [win or py<35]
   entry_points:
     - dask-yarn=dask_yarn.cli:main
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   host:
-    - python >=3.5
+    - python
     - pip
   run:
-    - python >=3.5
+    - python
     - dask >=2.2.0
     - distributed >=2.2.0
     - skein >=0.5.0
