@@ -22,7 +22,7 @@ requirements:
     - pip
   run:
     - python
-    - dask >=2.6.0
+    - dask-core >=2.6.0
     - distributed >=2.6.0
     - skein >=0.8.0
     - grpcio >=1.14.0
