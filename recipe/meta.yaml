@@ -1,20 +1,22 @@
 {% set name = "dask-yarn" %}
-{% set version = "0.8.1" %}
+{% set version = "0.9" %}
+{% set pkg_loc = "py2.py3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 44ba7cd2e2ca6004f8cbcc358816fea68a898da509cd41dd85e7c4a7c7fcb4ed
+  url: https://files.pythonhosted.org/packages/{{ pkg_loc }}/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}-{{ pkg_loc }}-none-any.whl
 
 build:
   number: 0
   skip: true  # [win or py<35]
   entry_points:
     - dask-yarn=dask_yarn.cli:main
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script:
+    - python -m pip install --no-deps --ignore-installed {{ name }}-{{ version }}-{{ pkg_loc }}-none-any.whl
+    - cp {{ SP_DIR }}/{{ name }}-{{ version }}.dist-info/LICENSE.txt {{ SRC_DIR }}/LICENSE.txt
 
 requirements:
   host:
@@ -22,9 +24,9 @@ requirements:
     - pip
   run:
     - python
-    - dask-core >=2.6.0
-    - distributed >=2.6.0
-    - skein >=0.8.0
+    - dask-core >=2021.1.0
+    - distributed >=2021.1.0
+    - skein >=0.8.1
     - grpcio >=1.14.0
 
 test:
@@ -50,3 +52,4 @@ extra:
   recipe-maintainers:
     - jcrist
     - mrocklin
+    - quasiben
