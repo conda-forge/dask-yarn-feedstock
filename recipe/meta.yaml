@@ -12,7 +12,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [win or py<35]
+  skip: true  # [win or py<37]
   entry_points:
     - dask-yarn=dask_yarn.cli:main
   script: {{ PYTHON }} -m pip install . --no-deps -vv
