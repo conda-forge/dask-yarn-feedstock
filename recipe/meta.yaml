@@ -1,13 +1,13 @@
 {% set name = "dask-yarn" %}
 {% set version = "0.9" %}
-{% set pkg_loc = "py2.py3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/{{ pkg_loc }}/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}-{{ pkg_loc }}-none-any.whl
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: e533be8ae0b1d46c7e916e50506a2b039de8d84a1590c705ad4166dda292623e
 
 build:
   number: 0
