@@ -15,9 +15,7 @@ build:
   skip: true  # [win or py<35]
   entry_points:
     - dask-yarn=dask_yarn.cli:main
-  script:
-    - python -m pip install --no-deps --ignore-installed {{ pkg_name }}-{{ version }}-py3-none-any.whl
-    - cp {{ SP_DIR }}/{{ name }}-{{ version }}.dist-info/LICENSE.txt {{ SRC_DIR }}/LICENSE.txt
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
