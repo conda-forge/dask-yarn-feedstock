@@ -1,5 +1,6 @@
 {% set name = "dask-yarn" %}
-{% set version = "0.8.1" %}
+{% set pkg_name = "dask_yarn" %}
+{% set version = "0.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +8,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 44ba7cd2e2ca6004f8cbcc358816fea68a898da509cd41dd85e7c4a7c7fcb4ed
+  sha256: 6461a125e6c8bf881ec3b8007be239a5520d8df2371095ee625bd99a9b0f3daa
 
 build:
   number: 0
-  skip: true  # [win or py<35]
+  skip: true  # [win or py<37]
   entry_points:
     - dask-yarn=dask_yarn.cli:main
   script: {{ PYTHON }} -m pip install . --no-deps -vv
@@ -22,9 +23,9 @@ requirements:
     - pip
   run:
     - python
-    - dask-core >=2.6.0
-    - distributed >=2.6.0
-    - skein >=0.8.0
+    - dask-core >=2021.1.0
+    - distributed >=2021.1.0
+    - skein >=0.8.1
     - grpcio >=1.14.0
 
 test:
@@ -50,3 +51,4 @@ extra:
   recipe-maintainers:
     - jcrist
     - mrocklin
+    - quasiben
