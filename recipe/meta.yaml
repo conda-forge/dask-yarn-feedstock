@@ -11,7 +11,7 @@ source:
   sha256: 6461a125e6c8bf881ec3b8007be239a5520d8df2371095ee625bd99a9b0f3daa
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win or py<37]
   entry_points:
     - dask-yarn=dask_yarn.cli:main
